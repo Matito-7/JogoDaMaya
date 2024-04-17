@@ -6,15 +6,20 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public int speed;
+    public float speed = defSpeed;
     public float JumpForce;
     public int life;
     public bool grounded;
+    public const float runSpeed = 15;
+    public const float defSpeed = 6;
     public Transform detector;
     public LayerMask ground;
+   
+    
 
     void Start()
-    {    
+    {
+       
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -22,6 +27,7 @@ public class PlayerControl : MonoBehaviour
     {
         Walk();
         Jump();
+        Run();
     }
 
 
@@ -55,6 +61,25 @@ public class PlayerControl : MonoBehaviour
             }
         
     }
+
+    void Run()
+    {
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = runSpeed;
+           
+        }
+        else
+        {
+            if(speed != defSpeed)
+            {
+                speed = defSpeed;
+            }
+        }
+    }
+
+    
+
 }
 
 

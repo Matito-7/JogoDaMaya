@@ -9,6 +9,6 @@ public class SoldierKitten : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.GetComponent<MoverMaya>().life--;
+        collision.GetComponent<PlayerControl>().life--;
     }
 }
